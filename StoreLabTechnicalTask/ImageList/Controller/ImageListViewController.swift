@@ -25,7 +25,7 @@ class ImageListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       // errorTitle.isHidden = (imageListViewModel.numberofImages().count > 0)
+        
     }
 
     override func numberofMovies(_ images: [ImageModel] = []) -> [ImageModel] {
@@ -45,7 +45,7 @@ class ImageListViewController: BaseViewController {
 extension ImageListViewController: ImageListViewProtocol {
     func reloadMovieTableView() {
         errorTitle.isHidden = (imageListViewModel.numberofImages().count > 0)
-        movieListTableView.reloadData()
+        imageListTableView.reloadData()
     }
     
     func showAlert(title: String?, message: String) {

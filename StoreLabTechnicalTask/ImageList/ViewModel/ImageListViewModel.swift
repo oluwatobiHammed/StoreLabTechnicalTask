@@ -12,7 +12,7 @@ class ImageListViewModel {
     weak var view : ImageListViewProtocol?
     private var networkManager: ManagerProtocol
     private var imageListResult: [ImageModel] = []
-    private var sendButtonPressed: Bool = false
+    private var isError: Bool = false
     private var currentPage = 1
     
     
@@ -33,6 +33,7 @@ extension ImageListViewModel: ImageListProtocol {
             guard let self else { return }
             switch result {
             case .success(let images):
+                self.isError = false
                 if currentPage == 1 {
                     imageListResult.removeAll()
                 }
@@ -48,8 +49,9 @@ extension ImageListViewModel: ImageListProtocol {
                 }
             case .failure(let err):
                 DispatchQueue.main.async { [self] in
-                    self.view?.showAlert(title: "Something went wrong", message: err.localizedDescription)
+                    self.isError = true
                     self.getImagesLocally()
+                    self.view?.showAlert(title: "Something went wrong", message: err.localizedDescription)
                 }
                 
             }
@@ -59,7 +61,7 @@ extension ImageListViewModel: ImageListProtocol {
     }
     
     func pagination(index: Int) {
-        if   index == imageListResult.count - 1 {
+        if !isError, index == imageListResult.count - 1 {
             currentPage += 1
             getImages()
         }
@@ -78,7 +80,7 @@ extension ImageListViewModel: ImageListProtocol {
     
     
     private func addNotificationObserver() {
-        // Favorite Movie update
+        // Favorite Image update
         NotificationCenter.default.addObserver(self, selector: #selector(updateAddedFavoriteImage), name: NSNotification.Name(rawValue: "updateAddedFavoriteImage"), object: nil)
     }
     

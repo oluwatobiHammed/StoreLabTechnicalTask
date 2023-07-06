@@ -59,7 +59,9 @@
 		F1D9AA162A56B5DA00D9BEB8 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D9AA152A56B5DA00D9BEB8 /* AlertManager.swift */; };
 		F1D9AA192A56B7A500D9BEB8 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D9AA182A56B7A500D9BEB8 /* UserManager.swift */; };
 		F1D9AA1B2A56CFB900D9BEB8 /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D9AA1A2A56CFB900D9BEB8 /* ImageDetailsViewController.swift */; };
-		F1D9AA1E2A5704FE00D9BEB8 /* MovieRealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D9AA1D2A5704FD00D9BEB8 /* MovieRealmManager.swift */; };
+		F1D9AA1E2A5704FE00D9BEB8 /* ImageRealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D9AA1D2A5704FD00D9BEB8 /* ImageRealmManager.swift */; };
+		F1D9AA202A57258E00D9BEB8 /* BaseImageViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D9AA1F2A57258E00D9BEB8 /* BaseImageViewModelProtocol.swift */; };
+		F1D9AA222A57260C00D9BEB8 /* FavoriteImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D9AA212A57260C00D9BEB8 /* FavoriteImageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,7 +135,9 @@
 		F1D9AA152A56B5DA00D9BEB8 /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		F1D9AA182A56B7A500D9BEB8 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		F1D9AA1A2A56CFB900D9BEB8 /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
-		F1D9AA1D2A5704FD00D9BEB8 /* MovieRealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieRealmManager.swift; sourceTree = "<group>"; };
+		F1D9AA1D2A5704FD00D9BEB8 /* ImageRealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRealmManager.swift; sourceTree = "<group>"; };
+		F1D9AA1F2A57258E00D9BEB8 /* BaseImageViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseImageViewModelProtocol.swift; sourceTree = "<group>"; };
+		F1D9AA212A57260C00D9BEB8 /* FavoriteImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				F1D9A9F22A562FD200D9BEB8 /* ImageListViewModel.swift */,
+				F1D9AA212A57260C00D9BEB8 /* FavoriteImageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 			children = (
 				F1D9A9EE2A562EB500D9BEB8 /* ImageListProtocol.swift */,
 				F1D9A9F02A562F7800D9BEB8 /* ImageListViewProtocol.swift */,
+				F1D9AA1F2A57258E00D9BEB8 /* BaseImageViewModelProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -428,7 +434,7 @@
 		F1D9AA1C2A5704EA00D9BEB8 /* DB Manager */ = {
 			isa = PBXGroup;
 			children = (
-				F1D9AA1D2A5704FD00D9BEB8 /* MovieRealmManager.swift */,
+				F1D9AA1D2A5704FD00D9BEB8 /* ImageRealmManager.swift */,
 			);
 			path = "DB Manager";
 			sourceTree = "<group>";
@@ -585,6 +591,7 @@
 			files = (
 				F1D9AA162A56B5DA00D9BEB8 /* AlertManager.swift in Sources */,
 				F1D9A9F82A5639B400D9BEB8 /* ImageDetailTableViewCell.swift in Sources */,
+				F1D9AA222A57260C00D9BEB8 /* FavoriteImageViewModel.swift in Sources */,
 				F1D9A9EF2A562EB500D9BEB8 /* ImageListProtocol.swift in Sources */,
 				F1D9A9CA2A562A5A00D9BEB8 /* FontConstants.swift in Sources */,
 				F1D9A9F12A562F7800D9BEB8 /* ImageListViewProtocol.swift in Sources */,
@@ -605,7 +612,7 @@
 				F1D9A9C52A5629D900D9BEB8 /* ImageListEndpoints.swift in Sources */,
 				F1D9A9BB2A56298300D9BEB8 /* Router.swift in Sources */,
 				F1D9A99A2A5619A000D9BEB8 /* FavoriteMoviesViewController.swift in Sources */,
-				F1D9AA1E2A5704FE00D9BEB8 /* MovieRealmManager.swift in Sources */,
+				F1D9AA1E2A5704FE00D9BEB8 /* ImageRealmManager.swift in Sources */,
 				F1D9A9B52A56297700D9BEB8 /* HTTPMethod.swift in Sources */,
 				F1D9A9B72A56297B00D9BEB8 /* HTTPTask.swift in Sources */,
 				F1D9A9DE2A562AD800D9BEB8 /* ImageModel.swift in Sources */,
@@ -613,6 +620,7 @@
 				F1D9A9D92A562A9500D9BEB8 /* UIView+Border.swift in Sources */,
 				F1D9A9D72A562A9000D9BEB8 /* UIImage+ImageName.swift in Sources */,
 				F1D9A9AC2A56292300D9BEB8 /* Manager.swift in Sources */,
+				F1D9AA202A57258E00D9BEB8 /* BaseImageViewModelProtocol.swift in Sources */,
 				F1D9A9AE2A56292C00D9BEB8 /* ManagerProtocol.swift in Sources */,
 				F1D9A9DB2A562A9900D9BEB8 /* UIViewControllerExtension.swift in Sources */,
 				F1D9A9B12A56296C00D9BEB8 /* EndPointType.swift in Sources */,

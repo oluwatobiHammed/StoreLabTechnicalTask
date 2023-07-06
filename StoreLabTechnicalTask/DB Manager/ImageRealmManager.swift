@@ -45,17 +45,36 @@ class ImageRealmManager {
         return realm?.objects(type)
     }
     
+    func fetchOverviewActivities(id: Bool) -> [ImageModel]? {
+        
+        let checkInExPredicate = NSPredicate(format: "key != %@", id)
+        let predicateAnd = NSCompoundPredicate(type: .and, subpredicates: [checkInExPredicate])
+        if let result = fetchObjects(type: ImageModel.self, withPredicate: predicateAnd), !result.isInvalidated {
+            return (Array(result) as? [ImageModel])
+        }
+        return nil
+        
+    }
+
+    func fetchObjects(type: Object.Type, withPredicate predicate: NSPredicate? = nil) -> Results<Object>? {
+        if let predicate = predicate {
+            return realm?.objects(type).filter(predicate)
+        } else {
+            return realm?.objects(type)
+        }
+    }
+    
     func clearImages() {
         DispatchQueue.main.async { [self] in
             clearObject(type: ImageModel.self, isCascading: false)
         }
     }
     
-//    func clearFavoriteImages() {
-//        DispatchQueue.main.async { [self] in
-//            clearObject(type: ImageModel.self, isCascading: false)
-//        }
-//    }
+    func clearFavoriteImages() {
+        DispatchQueue.main.async { [self] in
+            clearObject(type: ImageModel.self, isCascading: false)
+        }
+    }
     
     func clearObject(type: Object.Type, isCascading: Bool = false) {
         try? realm?.write ({

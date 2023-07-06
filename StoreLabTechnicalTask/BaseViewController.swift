@@ -11,7 +11,7 @@ import UIKit
 class BaseViewController: UIViewController {
     private let unavailableCellIdentifier = "UnavailableCellIdentifier"
     
-    lazy var movieListTableView: UITableView = {
+    lazy var imageListTableView: UITableView = {
         $0.delegate = self
         $0.dataSource = self
         $0.register(ImageDetailTableViewCell.self, forCellReuseIdentifier: ImageDetailTableViewCell.reuseIdentifier)
@@ -71,17 +71,17 @@ class BaseViewController: UIViewController {
             make.height.equalTo(40)
         }
         
-        view.addSubview(movieListTableView)
-        movieListTableView.snp.makeConstraints { make in
+        view.addSubview(imageListTableView)
+        imageListTableView.snp.makeConstraints { make in
             make.top.equalTo(naVBarView.snp.bottom)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.bottom.equalToSuperview()
         }
         
-        movieListTableView.addSubview(errorTitle)
+        imageListTableView.addSubview(errorTitle)
         errorTitle.snp.makeConstraints { make in
-            make.center.equalTo(movieListTableView.snp.center)
+            make.center.equalTo(imageListTableView.snp.center)
         }
     }
     

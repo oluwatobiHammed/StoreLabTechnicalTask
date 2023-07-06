@@ -7,9 +7,7 @@
 
 import Foundation
 
-protocol ImageListProtocol {
-    func numberofImages() -> [ImageModel]
-    func getImages()
+protocol ImageListProtocol: BaseImageViewModelProtocol {
     func pagination(index: Int)
     func viewDidLoad()
 }

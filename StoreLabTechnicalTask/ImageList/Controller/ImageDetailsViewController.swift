@@ -11,11 +11,11 @@ import Kingfisher
 class ImageDetailsViewController: UIViewController {
     
     private var image: ImageModel
-    private var starsRating: Int?
-    private var listOfLikedImages =  UserManager().readLikedImage()
+    private var listOfLikedImages = UserManager().readLikedImage()
     private let likebuttonimage = UIImage(named: .heartFill)
     private var isfavorite: Bool = false
     private var heightConstraint: NSLayoutConstraint?
+    
     private let posterImage: UIImageView = {
         $0.contentMode = .scaleAspectFit
         $0.clipsToBounds = true
@@ -31,104 +31,6 @@ class ImageDetailsViewController: UIViewController {
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .darkContent
     }
-//    private let mainContentContainer: UIView = {
-//        $0.backgroundColor = UIColor(hexString: "#A4000000", alpha: 0.1)
-//        $0.isOpaque = false
-//        return $0
-//    }(UIView(frame: .zero))
-//
-//    private let contentContainer: UIView = {
-//        $0.backgroundColor = .clear
-//        return $0
-//    }(UIView(frame: .zero))
-//
-//    private let topcontentContainer: UIView = {
-//        $0.backgroundColor = .clear
-//        return $0
-//    }( UIView(frame: .zero))
-//
-//    private let firstLineViewContainer: UIView = {
-//        $0.backgroundColor =  kColor.BrandColours.DarkGray
-//        return $0
-//    }(UIView(frame: .zero))
-//
-//    private let secondLineViewContainer: UIView = {
-//        $0.backgroundColor =  kColor.BrandColours.DarkGray
-//        return $0
-//    }(UIView(frame: .zero))
-    
-//    private let rateLabel: UILabel = {
-//        $0.font = kFont.EffraMediumRegular.of(size: 18)
-//        $0.textAlignment = .left
-//        $0.numberOfLines = 0
-//        $0.textColor = kColor.BrandColours.DarkGray
-//        return $0
-//    }(UILabel())
-//
-//    private let overViewLabel: UILabel = {
-//        $0.font = kFont.EffraRegular.of(size: 14)
-//        $0.textAlignment = .center
-//        $0.numberOfLines = 0
-//        $0.textColor = kColor.BrandColours.DarkGray
-//        $0.adjustsFontForContentSizeCategory = true
-//        $0.minimumScaleFactor = 0.4
-//        $0.adjustsFontSizeToFitWidth = true
-//        $0.sizeToFit()
-//        return $0
-//    }(UILabel())
-//
-//    private let releasedateTitleLabel: UILabel = {
-//        $0.font = kFont.EffraRegular.of(size: 12)
-//        $0.text = "Release Date"
-//        $0.textAlignment = .left
-//        $0.numberOfLines = 0
-//        $0.textColor = kColor.BrandColours.DarkGray.withAlphaComponent(0.5)
-//        return $0
-//    }(UILabel())
-//
-//    private let releasedateLabel: UILabel = {
-//        $0.font = kFont.EffraHeavyRegular.of(size: 14)
-//        $0.textAlignment = .left
-//        $0.numberOfLines = 2
-//        $0.textColor = kColor.BrandColours.DarkGray
-//        return $0
-//    }(UILabel())
-//
-//
-//    private lazy var containerStackView: UIStackView = {
-//        $0.axis = .vertical
-//        $0.distribution = .fillEqually
-//        $0.backgroundColor = .clear
-//        $0.alignment = .fill
-//        return $0
-//    }(UIStackView(arrangedSubviews: [topcontentContainer, contentContainer]))
-//
-//    private lazy var releaseDatecontainerStackView: UIStackView = {
-//        $0.axis = .vertical
-//        $0.distribution = .fillEqually
-//        $0.backgroundColor = .clear
-//        $0.alignment = .fill
-//        $0.spacing = -60
-//        return $0
-//    }(UIStackView(arrangedSubviews: [releasedateTitleLabel, releasedateLabel]))
-//
-//
-//    private let circleImage: UIImageView = {
-//        let image = UIImage(named: .circle).imageWithColor(tintColor: UIColor.hexString("FFCA28"))
-//        $0.contentMode = .scaleAspectFit
-//        $0.image = image
-//        $0.clipsToBounds = true
-//        return $0
-//    }(UIImageView())
-//
-//    private let ratingbuttonsStackView: UIStackView = {
-//        $0.axis = .horizontal
-//        $0.distribution = .fillEqually
-//        $0.alignment = .fill
-//        $0.spacing = 5
-//        $0.isUserInteractionEnabled = true
-//        return $0
-//    }(UIStackView(frame: .zero))
     
     private (set) lazy var likeButton: UIButton = {
         $0.addTarget(self, action: #selector(likedButtonnPressed), for: .touchUpInside)
@@ -145,11 +47,6 @@ class ImageDetailsViewController: UIViewController {
     }(UIButton())
     
     private lazy var ratingImages = [UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView()]
-    
-    
-//    private lazy var moviedetailsViewViewModel: DetailMovieViewModelProtocol = {
-//        return DetailMovieViewModel(setView: self, networkManager: networkManager)
-//    }()
     
     init(image: ImageModel) {
         self.image = image
@@ -186,8 +83,6 @@ class ImageDetailsViewController: UIViewController {
         isfavorite = listOfLikedImages.contains(where: { $0 == image.id })
         likeButton.setImage( likebuttonimage.imageWithColor(tintColor: isfavorite ? .red : .white), for: .normal)
         
-        
-        
     }
     
     
@@ -204,9 +99,10 @@ class ImageDetailsViewController: UIViewController {
         posterImage.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(5)
             make.right.equalToSuperview().offset(-5)
-            make.center.equalToSuperview()
+            make.top.equalToSuperview().offset(20)
+            make.bottom.equalToSuperview().offset(-50)
         }
-        heightConstraint = posterImage.heightAnchor.constraint(equalToConstant: 0)
+        
         heightConstraint?.isActive = true
         view.addSubview(overLayView)
         overLayView.snp.makeConstraints { make in
@@ -215,20 +111,21 @@ class ImageDetailsViewController: UIViewController {
             make.width.equalTo(posterImage.snp.width)
         }
         
+        heightConstraint = overLayView.heightAnchor.constraint(equalToConstant: 0)
         view.addSubview(shareButton)
         shareButton.snp.makeConstraints { make in
             make.width.equalTo(40)
             make.height.equalTo(40)
-            make.left.equalTo(view.snp.left).offset(15)
-            make.bottom.equalTo(view.snp.bottom).offset(-35)
+            make.left.equalTo(posterImage.snp.left).offset(15)
+            make.bottom.equalTo(posterImage.snp.bottom).offset(-35)
         }
         
         view.addSubview(likeButton)
         likeButton.snp.makeConstraints { make in
             make.height.equalTo(40)
             make.width.equalTo(40)
-            make.right.equalTo(view.snp.right).offset(-15)
-            make.bottom.equalTo(view.snp.bottom).offset(-35)
+            make.right.equalTo(posterImage.snp.right).offset(-15)
+            make.bottom.equalTo(posterImage.snp.bottom).offset(-35)
         }
         
         
@@ -239,13 +136,15 @@ class ImageDetailsViewController: UIViewController {
         guard let id = image.id else {return}
         if isfavorite {
             listOfLikedImages.append(id)
+            UserManager().setLikedImage(listOfLikedImages)
         } else {
             guard let index = listOfLikedImages.firstIndex(where: {$0 == id }) else {return}
             listOfLikedImages.remove(at: index)
+            UserManager().setLikedImage(listOfLikedImages)
         }
-        UserManager().setLikedImage(listOfLikedImages)
+        
         likeButton.setImage(likebuttonimage.imageWithColor(tintColor: isfavorite ? .red : .white), for: .normal)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateAddedFavoriteImage") , object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateAddedFavoriteImage"), object: nil)
         
     }
     
@@ -255,15 +154,6 @@ class ImageDetailsViewController: UIViewController {
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
     }
+    
 }
 
-//extension ImageDetailsViewController: DetailMovieViewProtocol {
-//    func updateLikeButton(isfavorite: Bool) {
-//        likeButton.setImage(likebuttonimage.imageWithColor(tintColor: isfavorite ? .red : .white), for: .normal)
-//    }
-//
-//    func showAlert(title: String?, message: String) {
-//        AlertManager.sharedAlertManager.showAlertWithTitle(title: title ?? "", message: message, controller: self)
-//    }
-//
-//}

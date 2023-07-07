@@ -10,9 +10,9 @@ import UIKit
 class FavoriteMoviesViewController: BaseViewController {
     
     
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .darkContent
-    }
+//    override var preferredStatusBarStyle : UIStatusBarStyle {
+//        return .darkContent
+//    }
     
     private lazy var imageListViewModel: FavoriteImageViewModel = {
         return FavoriteImageViewModel(setView: self)

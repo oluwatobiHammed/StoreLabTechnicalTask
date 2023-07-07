@@ -42,6 +42,10 @@ class BaseViewController: UIViewController {
         return label
     }()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .darkContent
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +56,8 @@ class BaseViewController: UIViewController {
     
     // MARK: setUpview
     private func setUpview() {
-        let icon = UIImage(named: .imagePlaceholder)
-        let centerImageTitleView  = centerImageTitleView(icon: icon, subTitle: "Millions of movies TV shows and people to discover")
+        let icon = UIImage(named: .lunchImg)
+        let centerImageTitleView  = centerImageTitleView(icon: icon, subTitle: "Millions of images to discover")
         view.addSubview(naVBarView)
         naVBarView.addSubview(centerImageTitleView)
         

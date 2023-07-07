@@ -41,5 +41,6 @@ enum ImageName: String {
     case heart
     case heartFill = "heart_fill"
     case share
+    case lunchImg = "lunch-img"
 
 }

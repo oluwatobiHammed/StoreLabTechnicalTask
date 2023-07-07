@@ -80,7 +80,6 @@ class ImageDetailTableViewCell:  UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-       // updateLikedImage(<#String#>)
     }
     
     func setUpImage(imageobject: ImageModel) {

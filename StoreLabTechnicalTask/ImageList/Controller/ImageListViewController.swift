@@ -36,9 +36,18 @@ class ImageListViewController: BaseViewController {
         imageListViewModel.pagination(index: index)
     }
     
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .darkContent
-    }
+//    override var preferredStatusBarStyle : UIStatusBarStyle {
+//        return .darkContent
+//    }
+//    
+//    override var prefersStatusBarHidden: Bool {
+//        
+//        if UIDevice.current.isAspectRatio16By9 {
+//            return true
+//        }
+//        
+//        return false
+//    }
 
 }
 

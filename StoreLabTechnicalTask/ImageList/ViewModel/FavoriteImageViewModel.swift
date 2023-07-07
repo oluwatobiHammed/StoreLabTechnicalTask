@@ -20,7 +20,6 @@ class FavoriteImageViewModel {
 
 extension FavoriteImageViewModel: BaseImageViewModelProtocol {
     
-    
     func getImages() {
         imageListResult.removeAll()
         listOfLikedImages = UserManager().readLikedImage()
@@ -30,9 +29,6 @@ extension FavoriteImageViewModel: BaseImageViewModelProtocol {
                     imageListResult.append(img)
                 }
             }
-            
-            guard imageListResult.count > 0 else {return}
-            view?.reloadMovieTableView()
         }
     }
     
@@ -53,7 +49,7 @@ extension FavoriteImageViewModel: BaseImageViewModelProtocol {
     
     @objc func updateAddedFavoriteImage() {
         getImages()
-        //view?.reloadMovieTableView()
+        view?.reloadMovieTableView()
     }
     
 }

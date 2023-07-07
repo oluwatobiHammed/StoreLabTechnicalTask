@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoriteMoviesViewController: BaseViewController {
+class FavoriteImagesViewController: BaseViewController {
     
     private lazy var imageListViewModel: FavoriteImageViewModel = {
         return FavoriteImageViewModel(setView: self)
@@ -33,7 +33,7 @@ class FavoriteMoviesViewController: BaseViewController {
 }
 
 
-extension FavoriteMoviesViewController: ImageListViewProtocol {
+extension FavoriteImagesViewController: ImageListViewProtocol {
     func showAlert(title: String?, message: String) {
         
     }

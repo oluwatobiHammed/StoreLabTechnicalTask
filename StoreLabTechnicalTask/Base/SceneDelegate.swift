@@ -56,7 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigation.tabBarItem.image = UIImage(systemName: "magnifyingglass")
         
         // Set up the second View Controller
-        let navigation1 = UINavigationController(rootViewController: FavoriteMoviesViewController())
+        let navigation1 = UINavigationController(rootViewController: FavoriteImagesViewController())
         navigation1.tabBarItem.title = "Favorite"
         navigation1.tabBarItem.image = UIImage(systemName: "heart")
         navigation1.tabBarItem.selectedImage = UIImage(systemName: "heart.fill")

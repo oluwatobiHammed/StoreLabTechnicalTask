@@ -89,6 +89,11 @@ class BaseViewController: UIViewController {
         }
     }
     
+    
+    override func hideTabbar(isShown: Bool = true) -> Bool {
+        return numberofImages().count >= 4
+    }
+    
     // MARK: Title and Image Navbar view
     private func centerImageTitleView(icon: UIImage, subTitle: String) -> UIView {
         
@@ -140,7 +145,7 @@ class BaseViewController: UIViewController {
         navigationController?.pushViewController(imageDetailVC, animated: true)
     }
     
-    func numberofMovies(_ images: [ImageModel] = []) -> [ImageModel]{
+    func numberofImages(_ images: [ImageModel] = []) -> [ImageModel]{
       return images
     }
     
@@ -153,12 +158,12 @@ class BaseViewController: UIViewController {
 extension BaseViewController:  UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  numberofMovies().count
+        return  numberofImages().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if  let cell = tableView.dequeueReusableCell(withIdentifier: ImageDetailTableViewCell.reuseIdentifier, for: indexPath) as? ImageDetailTableViewCell {
-            cell.setUpImage(imageobject: numberofMovies()[indexPath.row])
+            cell.setUpImage(imageobject: numberofImages()[indexPath.row])
             return cell
         } else {
             return tableView.dequeueReusableCell(withIdentifier: unavailableCellIdentifier, for: indexPath)
@@ -177,6 +182,6 @@ extension BaseViewController:  UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationToDetailVC(image: numberofMovies()[indexPath.row])
+        navigationToDetailVC(image: numberofImages()[indexPath.row])
     }
 }

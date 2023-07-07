@@ -9,11 +9,6 @@ import UIKit
 
 class FavoriteMoviesViewController: BaseViewController {
     
-    
-//    override var preferredStatusBarStyle : UIStatusBarStyle {
-//        return .darkContent
-//    }
-    
     private lazy var imageListViewModel: FavoriteImageViewModel = {
         return FavoriteImageViewModel(setView: self)
     }()
@@ -32,7 +27,7 @@ class FavoriteMoviesViewController: BaseViewController {
         errorTitle.isHidden = (imageListViewModel.numberofImages().count > 0)
     }
     
-    override func numberofMovies(_ images: [ImageModel] = []) -> [ImageModel] {
+    override func numberofImages(_ images: [ImageModel] = []) -> [ImageModel] {
         return imageListViewModel.numberofImages()
     }
 }

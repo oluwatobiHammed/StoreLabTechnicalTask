@@ -214,6 +214,7 @@
 				F1D9A9CD2A562A7B00D9BEB8 /* Utils */,
 				F1D9AA272A57588800D9BEB8 /* Resource */,
 				F1D9AA392A582AAB00D9BEB8 /* Base */,
+				F1D9A9772A56165800D9BEB8 /* Info.plist */,
 				F1D9A9742A56165800D9BEB8 /* LaunchScreen.storyboard */,
 			);
 			path = StoreLabTechnicalTask;
@@ -453,7 +454,6 @@
 		F1D9AA272A57588800D9BEB8 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				F1D9A9772A56165800D9BEB8 /* Info.plist */,
 				F1D9A9F92A563E9200D9BEB8 /* Fonts */,
 				F1D9AA252A57588300D9BEB8 /* Image.json */,
 				F1D9A9722A56165800D9BEB8 /* Assets.xcassets */,

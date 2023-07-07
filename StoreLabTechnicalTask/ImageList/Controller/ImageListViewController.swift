@@ -28,7 +28,7 @@ class ImageListViewController: BaseViewController {
         
     }
 
-    override func numberofMovies(_ images: [ImageModel] = []) -> [ImageModel] {
+    override func numberofImages(_ images: [ImageModel] = []) -> [ImageModel] {
         return imageListViewModel.numberofImages()
     }
     

@@ -11,10 +11,9 @@ class ImageListViewModel {
     
     weak var view : ImageListViewProtocol?
     private var networkManager: ManagerProtocol
-    private var imageListResult: [ImageModel] = []
     private var isError: Bool = false
     private var currentPage = 1
-    
+    @Published var imageListResult: [ImageModel] = []
     
     init(setView view: ImageListViewProtocol?, networkManager: ManagerProtocol) {
         if let view  { self.view = view }
@@ -24,9 +23,6 @@ class ImageListViewModel {
 
 
 extension ImageListViewModel: ImageListProtocol {
-    func numberofImages() -> [ImageModel] {
-        imageListResult
-    }
     
     func getImages() {
         networkManager.getImageList(page: currentPage, limit: 30) { [weak self] result in

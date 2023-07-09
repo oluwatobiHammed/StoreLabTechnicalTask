@@ -8,7 +8,7 @@
 import Foundation
 
 protocol BaseImageViewModelProtocol {
-    func numberofImages() -> [ImageModel]
+    var imageListResult: [ImageModel] { get set }
     func getImages()
     func viewDidLoad()
 }

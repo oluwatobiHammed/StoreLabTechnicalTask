@@ -11,7 +11,7 @@ class FavoriteImageViewModel {
     
     weak var view : ImageListViewProtocol?
     private var listOfLikedImages: [String] = []
-    private var imageListResult: [ImageModel] = []
+    @Published var imageListResult: [ImageModel] = []
     init(setView view: ImageListViewProtocol?) {
         if let view  { self.view = view }
     }
@@ -30,10 +30,6 @@ extension FavoriteImageViewModel: BaseImageViewModelProtocol {
                 }
             }
         }
-    }
-    
-    func numberofImages() -> [ImageModel] {
-        imageListResult
     }
     
     

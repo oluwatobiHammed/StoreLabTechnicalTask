@@ -29,31 +29,18 @@ class ImageListViewController: BaseViewController {
     }
 
     override func numberofImages(_ images: [ImageModel] = []) -> [ImageModel] {
-        return imageListViewModel.numberofImages()
+        return imageListViewModel.imageListResult
     }
     
     override func pagination(index: Int) {
         imageListViewModel.pagination(index: index)
     }
-    
-//    override var preferredStatusBarStyle : UIStatusBarStyle {
-//        return .darkContent
-//    }
-//    
-//    override var prefersStatusBarHidden: Bool {
-//        
-//        if UIDevice.current.isAspectRatio16By9 {
-//            return true
-//        }
-//        
-//        return false
-//    }
 
 }
 
 extension ImageListViewController: ImageListViewProtocol {
     func reloadMovieTableView() {
-        errorTitle.isHidden = (imageListViewModel.numberofImages().count > 0)
+        errorTitle.isHidden = (imageListViewModel.imageListResult.count > 0)
         imageListTableView.reloadData()
     }
     

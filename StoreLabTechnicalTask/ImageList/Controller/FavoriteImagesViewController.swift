@@ -24,11 +24,11 @@ class FavoriteImagesViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         imageListViewModel.getImages()
-        errorTitle.isHidden = (imageListViewModel.numberofImages().count > 0)
+        errorTitle.isHidden = (imageListViewModel.imageListResult.count > 0)
     }
     
     override func numberofImages(_ images: [ImageModel] = []) -> [ImageModel] {
-        return imageListViewModel.numberofImages()
+        return imageListViewModel.imageListResult
     }
 }
 
